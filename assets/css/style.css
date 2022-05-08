@@ -1,0 +1,235 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+#app {
+  display: flex;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+.site-login {
+  display: none;
+  margin-left: 22px;
+  text-align: right;
+}
+.site-login .user-info-welcome {
+  font-size: 14px;
+}
+.site-login .user-info-email {
+  font-size: 12px;
+}
+.site-login .user-photo {
+  position: relative;
+  margin-left: 7px;
+}
+.site-login .user-photo img {
+  border-radius: 100%;
+}
+.site-login .user-notification {
+  position: absolute;
+  top: -1.5px;
+  right: -2px;
+  background-color: #F85959;
+  color: #fff;
+  font-size: 10px;
+  line-height: 1;
+  padding: 1px 3px;
+  border-radius: 100%;
+}
+.site-language {
+  border: 1px solid #CCCCCC;
+  border-radius: 3px;
+  display: none;
+  padding: 5px 4px;
+}
+.site-language select {
+  font-size: 14px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 1px;
+  border: none;
+  padding: 0;
+  padding-right: 1.2rem;
+}
+.site-language select:focus {
+  outline: transparent;
+}
+
+aside {
+  width: 220px;
+  z-index: 1;
+  background-color: #fff;
+  transition: all 0.2s;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -220px;
+}
+aside.open {
+  left: 0;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+aside .event-header {
+  background: linear-gradient(180deg, #ffb354 0%, #ee7a3a 100%);
+  color: #fff;
+  min-height: 68px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+aside .event-header h2 {
+  margin: 0;
+  font-size: 30px;
+}
+aside .event-menu {
+  font-family: "Quicksand", sans-serif;
+  padding: 0;
+  list-style: none;
+}
+aside .event-menu li {
+  padding: 7px 24px;
+  border-bottom: solid 2px #E7E7E7;
+}
+aside .event-menu li.event-menu-active {
+  background-color: #FDF1EB;
+  padding-left: 29px;
+  position: relative;
+}
+aside .event-menu li.event-menu-active::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, #FFB455 0%, #ED7839 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+aside .event-logo {
+  padding: 0 1rem;
+}
+aside .event-logo img {
+  max-width: 100%;
+}
+aside .site-language, aside .site-login {
+  display: flex;
+}
+aside .aside-footer {
+  padding: 1rem;
+}
+aside .aside-footer .site-login {
+  flex-direction: column;
+  text-align: center;
+  margin-left: 0;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+aside .aside-footer .site-login .user-photo {
+  display: inline;
+  width: 32px;
+}
+aside button.show-aside {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: linear-gradient(180deg, #FFB455 0%, #ED7839 100%);
+  border: none;
+  min-height: 68px;
+  padding: 0 0.5rem;
+}
+
+main {
+  width: 100%;
+}
+
+header {
+  background-color: #fdf1eb;
+  display: flex;
+  padding: 17px 36px 17px 45px;
+  min-height: 68px;
+  align-items: center;
+  justify-content: flex-end;
+}
+header .event-info {
+  margin-right: auto;
+}
+header .event-info-name, header .event-info-edition, header .event-info-issn {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  color: #725C5C;
+}
+header .event-info-edition {
+  font-size: 22px;
+  margin: 2px 0;
+}
+
+article {
+  padding: 17px 36px 17px 45px;
+}
+article .article-header {
+  display: flex;
+  flex-direction: column;
+}
+article .article-header-title {
+  color: #ED7839;
+  font-size: 20px;
+  font-weight: 900;
+}
+article .article-header-options {
+  font-size: 14px;
+  font-weight: 500;
+}
+article .article-header-options a {
+  text-decoration: none;
+  color: #ED7839;
+}
+
+.slaca-button {
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  background-color: #ED7839;
+  color: #FFF !important;
+  font-size: 1rem;
+  padding: 6px 12px;
+}
+
+@media screen and (min-width: 1024px) {
+  aside {
+    position: relative;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    left: 0;
+  }
+  aside .site-language, aside .site-login {
+    display: none;
+  }
+
+  main {
+    max-width: calc(100% - 220px);
+  }
+
+  header {
+    padding: 17px 36px;
+  }
+  header .site-language, header .site-login {
+    display: flex;
+  }
+
+  article {
+    padding: 17px 36px;
+  }
+
+  button.show-aside {
+    display: none;
+  }
+}
