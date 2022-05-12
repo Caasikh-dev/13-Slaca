@@ -8,4 +8,21 @@ window.addEventListener('load',function(){
     })
 
 
+
 });
+
+function readMore() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("btn-read-more");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "ver mais"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "ver menos"; 
+    moreText.style.display = "inline";
+  }
+}

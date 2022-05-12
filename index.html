@@ -8,6 +8,12 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+        <script src="https://cdn.tiny.cloud/1/i8ch126mh3pcww981gbik4ewhsp3nuxaqth2tglhcbhsjykt/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>
+            tinymce.init({
+              selector: '#input-content'
+            });
+          </script>
 
         <title>Scala</title>
     </head>
@@ -106,11 +112,11 @@
                                     <iframe width="560" height="315" src="https://www.youtube.com/embed/74nm7vb4HPI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             </div>
-                            <div class="details-info">
-                                <div class="details-info-header">
+                            <div class="details-info primary-card">
+                                <div class="primary-card-header">
                                     Detalhes
                                 </div>
-                                <div class="details-info-body">
+                                <div class="primary-card-body details">
                                     <p><strong>Tipo de Apresentação:</strong>  Pôster<br>
                                         <strong>Eixo temático:</strong> Alimentação e saúde (AS) <br>
                                         <strong>Palavras-chaves:</strong> Alimentos funcionais, alimentação escolar.</p>
@@ -127,10 +133,148 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="article-body-resume"></div>
-                        <div class="article-body-discurssion"></div>
+
+                        <div class="article-body-resume primary-card">
+                            <div class="primary-card-header">Resumo</div>
+                            <div class="primary-card-body">
+                                <p class="p-inline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae turpis auctor, mollis felis ut, commodo turpis. Phasellus felis mauris, egestas eget cursus et, iaculis quis lacus. Fusce auctor eros sed magna ultricies gravida. Etiam aliquam dictum nisl, vel aliquet enim accumsan sit amet. Donec finibus nisi tellus, ut viverra lorem vestibulum ut. Phasellus condimentum orci id leo condimentum lobortis et non lorem. Sed id nisl metus. Quisque sollicitudin ligula in sapien scelerisque, ac gravida eros vestibulum.<span id="dots">...</span></p>
+                                <span id="more" style="display:none">
+                                    <p>Fusce vitae luctus dui. Donec id euismod mauris, in volutpat urna. Proin dapibus consequat feugiat. Proin dictum justo arcu, quis vestibulum augue lacinia quis. Sed dignissim dui nulla, ut faucibus mauris sodales id. Aliquam erat volutpat. Maecenas dolor enim, tincidunt id elit non, suscipit interdum turpis. Etiam finibus urna libero, eget interdum eros volutpat ullamcorper. Pellentesque et pretium lorem. Aenean interdum quis diam ac porttitor. Cras nec ipsum pulvinar, pharetra libero non, ornare enim. Etiam in laoreet odio.</p>
+                                    <p>Nam eget tristique elit, at fermentum tellus. Mauris scelerisque ligula id eleifend feugiat. Donec eleifend vehicula sem nec dapibus. Integer scelerisque neque dui, in lacinia erat molestie eu. Phasellus maximus dui eget lacus porta tempor. Ut ex nibh, dignissim quis purus semper, efficitur facilisis turpis. Praesent blandit elementum ultricies. Aliquam sit amet enim sit amet nulla pulvinar lobortis consectetur non odio. Phasellus at lacus hendrerit, vulputate nisi sit amet, viverra mauris. Etiam eu scelerisque orci. Quisque sagittis, mi vitae pharetra iaculis, orci elit eleifend massa, eu posuere mauris odio id odio. Morbi eu libero luctus, consectetur lorem vel, interdum sapien. Aenean in porta arcu. Maecenas eu maximus massa.</p>
+                                    <p class="p-inline">Praesent velit dolor, dignissim sed quam ac, efficitur porta justo. Pellentesque porta pharetra felis ut hendrerit. Nulla facilisi. Aliquam erat volutpat. Nunc sit amet faucibus quam. Maecenas dapibus luctus dolor at viverra. Duis nec fringilla libero. Duis risus nibh, viverra ac orci nec, iaculis dictum sem. Aliquam at malesuada arcu. Aliquam erat volutpat. Donec varius ipsum purus, ut vehicula purus placerat vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                </span>
+                                <button onclick="readMore()" id="btn-read-more">ver mais</button>
+                            </div>
+                        </div>
+
+                        <div class="article-body-discurssion primary-card">
+                            <div class="primary-card-header">Discursões</div>
+                            <div class="primary-card-body">
+                                <div class="discurssion-form">
+                                    <div id="topic-default" class="discurssion-form-step">
+                                        <h5 class="topic-default-title">Compartilhe suas ideias ou dúvidas com os autores!</h5>
+                                        <div class="topic-default-icons">
+                                            <img src="assets/image/icone1.svg" alt="icone mão">
+                                            <img src="assets/image/icone2.svg" alt="icone balão">
+                                            <img src="assets/image/icone3.svg" alt="icone ideia">
+                                        </div>
+                                        <p class="topic-default-description">Sabia que o maior estímulo no desenvolvimento científico e cultural é a curiosidade? Deixe seus questionamentos ou sugestões para o autor!</p>
+                                        <div class="topic-button-area">
+                                            <div class="line"></div>
+                                            <button class="to-topic to-topic-form" onclick="topicStep('topic-form')">
+                                                <img src="assets/image/icon-criar.svg" alt="icone com simbolo de mais">criar tópico</button>
+                                        </div>
+                                    </div>
+                                    <div id="topic-form" class="discurssion-form-step">
+                                        <p>Tem uma dúvida ou sugestão? Compartilhe seu feedback com os autores!</p>
+                                        <form action="">
+                                            <div class="formgroup">
+                                                <label for="input-subject">Assunto</label>
+                                                <input id="input-subject" type="text" placeholder="Defina um tópico sucinto para notificar os autores...">
+                                            </div>
+                                            <div class="formgroup textarea">
+                                                <label for="input-content">Conteúdo</label>
+                                                <textarea id="input-content" cols="30" rows="10"></textarea>
+                                                <button class="to-topic-submit" onclick="topicStep('topic-submit')">Enviar</button>
+                                            </div>
+
+                                        </form>
+                                        
+                                    </div>
+                                    <div id="topic-submit" class="discurssion-form-step">
+                                        <h5>Seu tópico foi enviado com sucesso! :D</h5>
+                                        <p>Agradecemos por sua contribuição, uma notificação será enviada ao seu email assim que seu tópico for respondido!</p>
+                                        <a href="#">Descubra outros trabalhos!</a>
+                                        <div class="topic-button-area">
+                                            <div class="line"></div>
+                                            <button class="to-topic-form" onclick="topicStep('topic-form')">criar novo tópico</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="discurssion-topics">
+                                    <div class="discussion-card">
+                                        <div class="discurssion-card-default">
+                                            <h6 class="discurssion-card-title">Assunto da pergunta aparece aqui</h6>
+                                            <div class="discurssion-card-author">
+                                                <div class="author">Carlos Henrique Santos</div>
+                                            </div>
+                                            <div class="discurssion-card-content">
+                                                <p>Resposta do autor é aqui. Relato inscreve-se no campo da análise da dimensão e impacto de processo formativo situado impacto de processo formativo processo<span class="dots">...</span> resente relato inscreve-se no campo da análise da dimensão e impacto de processo formativo situado impacto de processo formativo processo.</p>
+                                            </div>
+                                            <div class="discurssion-card-actions">
+                                                <a href="#"><img src="" alt="menu de opções"></a>
+                                                <button class="slaca-button"><img src="" alt="curtir"></button>
+                                                <div class="discurssion-likes">1 like</div>
+                                                <div class="dircurssion-counter">1 resposta</div>
+                                            </div> 
+
+                                        </div>
+
+                                        <div class="discussion-answer">
+                                            
+                                            <div class="discurssion-card-author">
+                                                <div class="discurssion-card-author">
+                                                    <div class="author">Adriano da Silva</div>
+                                                    <div class="role">
+                                                        Autor
+                                                        <img src="#" alt="icone dos autores">
+                                                    </div>
+                                                </div>
+                                                <div class="discurssion-card-content">
+                                                    <p>Resposta do autor é aqui. Relato inscreve-se no campo da análise da dimensão e impacto de processo formativo situado impacto de processo formativo processo resente relato inscreve-se no campo da análise da dimensão e impacto de processo formativo situado impacto de processo formativo processo.</p>
+                                                </div> 
+                                            </div>
+                                            
+                                            <div class="discurssion-card-other">
+                                                <div class="discurssion-card-author">
+                                                    <div class="author">Carlos Henrique Santos</div>
+                                                </div>
+                                                <div class="discurssion-card-content">
+                                                    <p>Consegui entender melhor agora! Parece que a variação da análise da dimensão e impacto de processo formativo situado impacto de processo formativo.</p>
+                                                    <p>Obrigada pela resposta, muito interessante o seu trabalho! </p>
+                                                </div> 
+                                            </div>
+
+                                            <div class="discurssion-card-author">
+                                                <div class="discurssion-card-author">
+                                                    <div class="author">Carmila Ferreira Andrade</div>
+                                                    <div class="role">Coautor<img src="#" alt="icone dos autores"></div>
+                                                    
+                                                </div>
+                                                <div class="discurssion-card-content">
+                                                    <p>Também ínteressante lembrar que o relato inscreve-se no campo da análise da dimensão e impacto de processo formativo situado impacto de processo formativo processo resente relato inscreve-se no campo da análise da dimensão e impacto de processo formativo situado impacto de processo formativo processo.</p>
+                                                    <p>Situado impacto de processo formativo processo resente relato inscreve-se no campo da análise da dimensão e impacto de processo formativo situado impacto de processo formativo processo.</p>
+                                                </div> 
+                                            </div>
+
+                                            <div class="discurssion-card-author">
+                                                <div class="discurssion-card-author">
+                                                    <div class="author">Ana Carolina</div>
+                                                    <div class="role">Coautor<img src="#" alt="icone dos autores"></div>
+                                                </div>
+                                                <div class="discurssion-card-content">
+                                                    <p>Resposta do autor é aqui. Relato inscreve-se no campo da análise da dimensão e impacto de processo formativo situado impacto de processo formativo processo resente relato inscreve-se no campo da análise da dimensão e impacto de processo formativo situado impacto de processo formativo processo.</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </article>
+                <footer>
+                    <div class="footer-logo">
+                        <img src="" alt="Logo Galoá">
+                        <a href="#">Saiba Mais</a>
+                    </div>
+                    <div class="footer-content">
+                        <p><strong>Preservar a memória do evento e ampliar o acesso ao conhecimento científico</strong> gerado em eventos é a razão de ser da plataforma Galoá Proceedings.</p>
+                        <p>Os trabalhos publicados aqui têm maior alcance e ficam disponíveis para toda a comunidade cientifica, mantendo aceso o                         debate cientifico fomentado pelos encontros e aumentando o impacto do evento.</p>
+                    </div>
+                </footer>
             </main>
         </div>
         <script src="assets/js/script.js"></script>
