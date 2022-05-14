@@ -95,16 +95,22 @@ aside .event-menu {
   padding: 0;
   list-style: none;
 }
-aside .event-menu li {
+aside .event-menu a {
+  position: relative;
+  display: block;
   padding: 7px 24px;
   border-bottom: solid 2px #E7E7E7;
+  text-decoration: none;
+  color: inherit;
 }
-aside .event-menu li.event-menu-active {
+aside .event-menu .event-menu-active a,
+aside .event-menu li:hover a {
   background-color: #FDF1EB;
   padding-left: 29px;
   position: relative;
 }
-aside .event-menu li.event-menu-active::before {
+aside .event-menu .event-menu-active a::before,
+aside .event-menu li:hover a::before {
   content: "";
   display: block;
   width: 5px;
@@ -214,39 +220,6 @@ article .article-body-details {
   flex-direction: column;
   gap: 1rem;
 }
-article .article-body-details .details {
-  /*&-info{  
-      width: 100%;
-      border: 1px solid #ECECEC;
-      border-radius: 3px;
-      &-header, &-body{
-          padding: 10px 15px;
-      }
-      &-body{
-          padding: 15px;
-          font-size: 12px;
-          color: #5C5C5C;
-          font-family:'Quicksand', sans-serif;
-          max-height: 341px;
-          overflow-y: auto;
-          .authors{
-              font-size: 14px;
-          }
-          .footnote{
-              font-size: 10px;
-          }
-      }
-      &-header{
-          background-color: #FDF1EB;
-          font-size: 20px;
-          font-weight: 500;
-          color: #4E4E4E;
-
-
-      }
-
-  }*/
-}
 article .article-body-details .details-video {
   width: 100%;
 }
@@ -331,7 +304,6 @@ article .article-body-details .details-video {
   outline: none;
 }
 
-/*discurssion CSS*/
 .discurssion-form-step .topic-default-title {
   font-weight: 700;
   font-size: 18px;
@@ -354,6 +326,38 @@ article .article-body-details .details-video {
   margin-top: 35px;
   max-width: 626px;
   margin: 35px auto 0;
+}
+.discurssion-form-step .topic-form-title {
+  font-family: "Quicksand";
+  font-weight: 400;
+  font-size: 14px;
+  color: #5C5C5C;
+  text-align: center;
+  margin: 0;
+}
+.discurssion-form-step .topic-submit-title {
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  color: #ED7839;
+}
+.discurssion-form-step .topic-submit-description {
+  font-family: "Quicksand";
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  color: #595959;
+}
+.discurssion-form-step .topic-submit-link {
+  display: block;
+  font-family: "Quicksand";
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  text-decoration-line: underline;
+  color: #F48F44;
+  margin-bottom: 47px;
 }
 .discurssion-form-step .topic-button-area {
   position: relative;
@@ -386,7 +390,227 @@ article .article-body-details .details-video {
   font-size: 15px;
   text-align: center;
 }
+.discurssion-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #E7E7E7;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  margin-top: 15px;
+}
+.discurssion-card .discussion-answer {
+  display: none;
+}
+.discurssion-card.open .discussion-answer {
+  display: block;
+}
+.discurssion-card-title {
+  font-family: "Quicksand";
+  font-weight: 700;
+  font-size: 16px;
+  color: #ED7839;
+  margin: 0px;
+}
+.discurssion-card-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Quicksand";
+  font-weight: 500;
+  font-size: 12px;
+  color: #5C5C5C;
+}
+.discurssion-card-user .user {
+  font-family: "Quicksand";
+  font-weight: 700;
+  font-size: 12px;
+  color: #5C5C5C;
+}
+.discurssion-card-user .role {
+  font-family: "Quicksand";
+  font-weight: 700;
+  font-size: 14px;
+  color: #ED7839;
+}
+.discurssion-card-user .role img {
+  vertical-align: middle;
+  margin-left: 20px;
+}
+.discurssion-card-content {
+  font-family: "Quicksand";
+  font-weight: 400;
+  font-size: 14px;
+  color: #4D4D4D;
+}
+.discurssion-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: "Quicksand";
+  font-weight: 400;
+  font-size: 14px;
+  color: #757575;
+}
+.discurssion-card-actions .like-button {
+  padding: 2px 9px;
+}
+.discurssion-card-default, .discurssion-card-author, .discurssion-card-other {
+  padding: 18px 23px;
+}
+.discurssion-card-default {
+  cursor: pointer;
+}
+.discurssion-card-other {
+  border-top: 1px solid #E7E7E7;
+}
+.discurssion-card-author {
+  background: #F8F8F8;
+  border-top: 1px solid #E7E7E7;
+}
+.discurssion-card .discussion-blur-area {
+  display: none;
+}
+.discurssion-card-blur > *:not(.discussion-blur-area) {
+  filter: blur(4px);
+}
+.discurssion-card-blur .discussion-blur-area {
+  background-color: rgba(221, 221, 221, 0.3);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.discurssion-card-blur .discussion-blur-area-icon {
+  vertical-align: middle;
+}
+.discurssion-card-blur .discussion-blur-area-status {
+  font-family: "Quicksand";
+  font-weight: 700;
+  font-size: 16px;
+  color: #707070;
+  margin: 8px 0;
+}
+.discurssion-card-blur .discussion-blur-area-link {
+  font-family: "Quicksand";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #ED7839;
+}
 
+.formgroup {
+  margin-bottom: 1rem;
+}
+.formgroup label {
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 16px;
+  color: #ED7839;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.formgroup input,
+.formgroup textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 36px;
+}
+.formgroup input::placeholder,
+.formgroup textarea::placeholder {
+  font-family: "Quicksand";
+  font-weight: 400;
+  font-size: 14px;
+  color: #4D4D4D;
+  padding: 23px;
+}
+.formgroup input:focus-visible,
+.formgroup textarea:focus-visible {
+  outline: none;
+}
+.formgroup.textarea .textarea-group {
+  position: relative;
+  border: 1px solid;
+}
+.formgroup.textarea .textarea-group textarea {
+  border: none;
+  padding: 10px 5px;
+}
+.formgroup.textarea .textarea-group button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border: none;
+  padding: 8px 67px;
+  background: linear-gradient(180deg, #FEB154 0%, #F1833E 100%);
+  color: #fff;
+}
+
+footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 2rem;
+  font-family: "Quicksand", sans-serif;
+  color: #5C5C5C;
+  margin-top: 2rem;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 16px;
+  width: calc(100% - 32px);
+  height: 1px;
+  background-color: #e7e7e7;
+}
+footer .footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+footer .footer-logo img {
+  width: 100%;
+  max-width: 200px;
+}
+footer .footer-logo .galoa-button {
+  margin-top: 5px;
+  background-color: #71478e;
+  color: #fff;
+  text-align: center;
+  padding: 4px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  min-width: 75%;
+}
+footer .footer-content {
+  text-align: justify;
+}
+footer .footer-content p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  footer {
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  footer .footer-logo {
+    width: 200px;
+  }
+  footer .footer-content {
+    width: calc(100% - 200px);
+  }
+}
 @media screen and (min-width: 1024px) {
   aside {
     position: relative;
